@@ -5,13 +5,21 @@ namespace SnakesAndLadders.Tests
 {
   public class MovingTokenAcrossTheBoard
   {
+    Mock<IBoardPrinter> boardPrinter;
+    Game game;
+
+    [SetUp]
+    public void SetUp()
+    {
+      boardPrinter = new Mock<IBoardPrinter>();
+      game = new Game(boardPrinter.Object);
+      game.Start();
+    }
+
+
     [Test]
     public void WhenTheGameStartsTheTokenIsPlacedOnSquare1()
     {
-      var boardPrinter = new Mock<IBoardPrinter>();
-      var game = new Game(boardPrinter.Object);
-      game.Start();
-
       game.PrintBoard();
 
       boardPrinter.Verify(p => p.Print(1));
