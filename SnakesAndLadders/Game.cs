@@ -6,6 +6,8 @@ namespace SnakesAndLadders
   {
     private IBoardPrinter printer;
 
+    private int tokenPosition = 0;
+
     public Game(IBoardPrinter printer)
     {
       this.printer = printer;
@@ -13,12 +15,12 @@ namespace SnakesAndLadders
 
     public void Start()
     {
-      throw new NotImplementedException();
+      tokenPosition = 1;
     }
 
     public void PrintBoard()
     {
-      throw new NotImplementedException();
+      printer.Print(tokenPosition);
     }
   }
 }
