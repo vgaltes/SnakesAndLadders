@@ -4,6 +4,7 @@ namespace SnakesAndLadders
 {
   public enum TokenState
   {
-    Playing
+    Playing,
+    Winner
   }
 }
