@@ -6,7 +6,7 @@ namespace SnakesAndLadders
   {
     private IBoardPrinter printer;
 
-    private int tokenPosition = 0;
+    private Token token = new Token();
 
     public Game(IBoardPrinter printer)
     {
@@ -15,17 +15,18 @@ namespace SnakesAndLadders
 
     public void Start()
     {
-      tokenPosition = 1;
+      token.Move(1);
     }
 
     public void PrintBoard()
     {
-      printer.Print(tokenPosition);
+      printer.Print(token);
     }
 
     public void Move(int squares)
     {
-      tokenPosition += squares;
+      var futurePosition = token.Position + squares;
+      token.Move(futurePosition);
     }
   }
 }

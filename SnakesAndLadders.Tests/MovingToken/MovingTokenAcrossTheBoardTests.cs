@@ -22,7 +22,7 @@ namespace SnakesAndLadders.Tests
     {
       game.PrintBoard();
 
-      boardPrinter.Verify(p => p.Print(1));
+      boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Position == 1 && t.State == TokenState.Playing)));
     }
 
     [Test]
@@ -33,11 +33,11 @@ namespace SnakesAndLadders.Tests
       game.Start();
       game.Move(3);
       game.PrintBoard();
-      boardPrinter.Verify(p => p.Print(4));
+      boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Position == 4 && t.State == TokenState.Playing)));
 
       game.Move(4);
       game.PrintBoard();
-      boardPrinter.Verify(p => p.Print(8));
+      boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Position == 8 && t.State == TokenState.Playing)));
     }
   }
 }
