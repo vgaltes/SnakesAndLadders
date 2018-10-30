@@ -28,7 +28,7 @@ namespace SnakesAndLadders
     public void Move(int squares)
     {
       var futurePosition = token.Position + squares;
-      if (futurePosition <= LAST_SQUARE)
+      if (IsValidMovement(futurePosition))
       {
         token.Move(futurePosition);
       }
@@ -42,6 +42,11 @@ namespace SnakesAndLadders
     private bool HasTokenWin(Token token)
     {
       return token.Position == LAST_SQUARE;
+    }
+
+    private bool IsValidMovement(int square)
+    {
+      return square <= LAST_SQUARE;
     }
   }
 }
