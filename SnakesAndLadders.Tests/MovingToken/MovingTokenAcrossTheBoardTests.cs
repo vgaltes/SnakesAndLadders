@@ -11,6 +11,10 @@ namespace SnakesAndLadders.Tests
       var boardPrinter = new Mock<IBoardPrinter>();
       var game = new Game(boardPrinter.Object);
       game.Start();
+
+      game.PrintBoard();
+
+      boardPrinter.Verify(p => p.Print(1));
     }
   }
 }
