@@ -34,6 +34,10 @@ namespace SnakesAndLadders.Tests
       game.Move(3);
       game.PrintBoard();
       boardPrinter.Verify(p => p.Print(4));
+
+      game.Move(4);
+      game.PrintBoard();
+      boardPrinter.Verify(p => p.Print(8));
     }
   }
 }
