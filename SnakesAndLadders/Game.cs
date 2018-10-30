@@ -28,7 +28,10 @@ namespace SnakesAndLadders
     public void Move(int squares)
     {
       var futurePosition = token.Position + squares;
-      token.Move(futurePosition);
+      if (futurePosition <= LAST_SQUARE)
+      {
+        token.Move(futurePosition);
+      }
 
       if (HasTokenWin(token))
       {
