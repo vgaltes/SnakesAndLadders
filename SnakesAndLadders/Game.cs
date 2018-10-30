@@ -4,6 +4,8 @@ namespace SnakesAndLadders
 {
   public class Game
   {
+    private const int LAST_SQUARE = 100;
+
     private IBoardPrinter printer;
 
     private Token token = new Token();
@@ -27,6 +29,11 @@ namespace SnakesAndLadders
     {
       var futurePosition = token.Position + squares;
       token.Move(futurePosition);
+
+      if (futurePosition == LAST_SQUARE)
+      {
+        token.SetAsWinner();
+      }
     }
   }
 }

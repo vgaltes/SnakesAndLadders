@@ -20,5 +20,10 @@ namespace SnakesAndLadders
     {
       Position = toSquare;
     }
+
+    internal void SetAsWinner()
+    {
+      State = TokenState.Winner;
+    }
   }
 }

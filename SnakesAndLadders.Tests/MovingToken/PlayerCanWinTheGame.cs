@@ -13,7 +13,7 @@ namespace SnakesAndLadders.Tests
       var game = new Game(boardPrinter.Object);
       game.Start();
 
-      game.Move(LAST_SQUARE - 3);
+      game.Move(LAST_SQUARE - 4);
       game.Move(3);
       game.PrintBoard();
 
