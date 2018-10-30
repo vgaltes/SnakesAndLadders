@@ -6,13 +6,15 @@ namespace SnakesAndLadders.Tests
   public class MovingTokenAcrossTheBoard
   {
     Mock<IBoardPrinter> boardPrinter;
+    Mock<IDice> dice;
     Game game;
 
     [SetUp]
     public void SetUp()
     {
       boardPrinter = new Mock<IBoardPrinter>();
-      game = new Game(boardPrinter.Object);
+      dice = new Mock<IDice>();
+      game = new Game(boardPrinter.Object, dice.Object);
       game.Start();
     }
 
@@ -28,14 +30,14 @@ namespace SnakesAndLadders.Tests
     [Test]
     public void WhenThePlayerMakesAMovementTheBoardIsUpdated()
     {
-      var boardPrinter = new Mock<IBoardPrinter>();
-      var game = new Game(boardPrinter.Object);
+      dice.SetupSequence(d => d.Roll()).Returns(3).Returns(4);
+
       game.Start();
-      game.Move(3);
+      game.Move();
       game.PrintBoard();
       boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Square == 4 && t.State == TokenState.Playing)));
 
-      game.Move(4);
+      game.Move();
       game.PrintBoard();
       boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Square == 8 && t.State == TokenState.Playing)));
     }
