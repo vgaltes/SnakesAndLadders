@@ -4,7 +4,7 @@ namespace SnakesAndLadders
 {
   public class Token
   {
-    public int Position
+    public int Square
     {
       get;
       private set;
@@ -18,7 +18,7 @@ namespace SnakesAndLadders
 
     internal void Move(int toSquare)
     {
-      Position = toSquare;
+      Square = toSquare;
     }
 
     internal void SetAsWinner()

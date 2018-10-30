@@ -17,7 +17,7 @@ namespace SnakesAndLadders.Tests
       game.Move(3);
       game.PrintBoard();
 
-      boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Position == 100 && t.State == TokenState.Winner)));
+      boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Square == 100 && t.State == TokenState.Winner)));
     }
 
     [Test]
@@ -30,7 +30,7 @@ namespace SnakesAndLadders.Tests
       game.Move(4);
       game.PrintBoard();
 
-      boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Position == 97 && t.State == TokenState.Playing)));
+      boardPrinter.Verify(p => p.Print(It.Is<Token>(t => t.Square == 97 && t.State == TokenState.Playing)));
     }
   }
 
