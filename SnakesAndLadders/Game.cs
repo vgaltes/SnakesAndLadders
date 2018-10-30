@@ -7,12 +7,19 @@ namespace SnakesAndLadders
     private const int LAST_SQUARE = 100;
 
     private IBoardPrinter printer;
+    private IDice dice;
 
     private Token token = new Token();
 
     public Game(IBoardPrinter printer)
     {
       this.printer = printer;
+    }
+
+    public Game(IBoardPrinter printer, IDice dice)
+    {
+      this.printer = printer;
+      this.dice = dice;
     }
 
     public void Start()
@@ -23,6 +30,12 @@ namespace SnakesAndLadders
     public void PrintBoard()
     {
       printer.Print(token);
+    }
+
+    public void Move()
+    {
+      var squaresToMove = dice.Roll();
+      Move(squaresToMove);
     }
 
     public void Move(int squares)
