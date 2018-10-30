@@ -22,5 +22,10 @@ namespace SnakesAndLadders
     {
       printer.Print(tokenPosition);
     }
+
+    public void Move(int v)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
