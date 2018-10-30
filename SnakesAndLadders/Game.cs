@@ -11,11 +11,6 @@ namespace SnakesAndLadders
 
     private Token token = new Token();
 
-    public Game(IBoardPrinter printer)
-    {
-      this.printer = printer;
-    }
-
     public Game(IBoardPrinter printer, IDice dice)
     {
       this.printer = printer;
@@ -35,12 +30,8 @@ namespace SnakesAndLadders
     public void Move()
     {
       var squaresToMove = dice.Roll();
-      Move(squaresToMove);
-    }
 
-    public void Move(int squares)
-    {
-      var futureSquare = token.Square + squares;
+      var futureSquare = token.Square + squaresToMove;
       if (IsValidMovement(futureSquare))
       {
         token.Move(futureSquare);
