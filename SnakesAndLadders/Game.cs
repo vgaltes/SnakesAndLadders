@@ -30,10 +30,15 @@ namespace SnakesAndLadders
       var futurePosition = token.Position + squares;
       token.Move(futurePosition);
 
-      if (futurePosition == LAST_SQUARE)
+      if (HasTokenWin(token))
       {
         token.SetAsWinner();
       }
+    }
+
+    private bool HasTokenWin(Token token)
+    {
+      return token.Position == LAST_SQUARE;
     }
   }
 }
