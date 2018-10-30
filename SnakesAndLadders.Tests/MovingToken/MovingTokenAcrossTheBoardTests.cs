@@ -16,5 +16,15 @@ namespace SnakesAndLadders.Tests
 
       boardPrinter.Verify(p => p.Print(1));
     }
+
+    [Test]
+    public void WhenThePlayerMakesAMovementTheBoardIsUpdated()
+    {
+      var boardPrinter = new Mock<IBoardPrinter>();
+      var game = new Game(boardPrinter.Object);
+      game.Move(3);
+      game.PrintBoard();
+      boardPrinter.Verify(p => p.Print(4));
+    }
   }
 }
